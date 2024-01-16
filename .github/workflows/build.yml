@@ -23,14 +23,14 @@ jobs:
         include:
           - os: windows-latest
             platform: windows/amd64
-            output: Swallow.exe
+            output: DevMate.exe
           - os: macos-latest
             platform: darwin/universal
             # wails bug, mac 的 output file 不生效, 先用这个保证能用
-            output: Swallow
+            output: DevMate
           - os: ubuntu-latest
             platform: linux/amd64
-            output: Swallow-linux
+            output: DevMate-linux
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
@@ -75,9 +75,9 @@ jobs:
       - working-directory: target
         run: |
           ls -al target && ls -R target/
-          rm -rf Swallow-amd64-installer.exe
-          rm -rf Swallow.pkg
-          mv Swallow.app.zip Swallow-darwin.app.zip
+          rm -rf DevMate-amd64-installer.exe
+          rm -rf DevMate.pkg
+          mv DevMate.app.zip DevMate-darwin.app.zip
       - run: ls -al target && ls -R target/ && file target/
       - uses: actions/upload-artifact@v3
         with:
