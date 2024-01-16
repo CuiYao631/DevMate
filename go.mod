@@ -1,10 +1,11 @@
-module changeme
+module github.com/CuiYao631/DevMate
 
 go 1.21
 
-toolchain go1.21.3
-
-require github.com/wailsapp/wails/v2 v2.7.1
+require (
+	github.com/segmentio/ksuid v1.0.4
+	github.com/wailsapp/wails/v2 v2.7.1
+)
 
 require (
 	github.com/bep/debounce v1.2.1 // indirect
