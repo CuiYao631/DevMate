@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BufFileManager">
+    <libraries>
+      <module>
+        <name>buf.build/aep/type</name>
+        <path>$USER_HOME$/.cache/buf/v1/module/data/buf.build/aep/type/97bd82fb7c0846078e3bc1364b0ef45b</path>
+        <reference>buf.build/aep/type:97bd82fb7c0846078e3bc1364b0ef45b</reference>
+        <yaml>$USER_HOME$/.cache/buf/v1/module/data/buf.build/aep/type/97bd82fb7c0846078e3bc1364b0ef45b/buf.yaml</yaml>
+      </module>
+      <module>
+        <name>buf.build/bufbuild/protovalidate</name>
+        <path>$USER_HOME$/.cache/buf/v1/module/data/buf.build/bufbuild/protovalidate/1baebb0a15184714854fa1ddfd22a29b</path>
+        <reference>buf.build/bufbuild/protovalidate:1baebb0a15184714854fa1ddfd22a29b</reference>
+        <yaml>$USER_HOME$/.cache/buf/v1/module/data/buf.build/bufbuild/protovalidate/1baebb0a15184714854fa1ddfd22a29b/buf.yaml</yaml>
+      </module>
+      <module>
+        <name>buf.build/googleapis/googleapis</name>
+        <path>$USER_HOME$/.cache/buf/v1/module/data/buf.build/googleapis/googleapis/28151c0d0a1641bf938a7672c500e01d</path>
+        <reference>buf.build/googleapis/googleapis:28151c0d0a1641bf938a7672c500e01d</reference>
+        <yaml>$USER_HOME$/.cache/buf/v1/module/data/buf.build/googleapis/googleapis/28151c0d0a1641bf938a7672c500e01d/buf.yaml</yaml>
+      </module>
+    </libraries>
+  </component>
+</project>
