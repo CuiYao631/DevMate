@@ -2,6 +2,8 @@ module changeme
 
 go 1.21
 
+toolchain go1.21.3
+
 require github.com/wailsapp/wails/v2 v2.7.1
 
 require (
