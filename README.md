@@ -1,19 +1,66 @@
-# README
+<div align="center">
+<a href="https://github.com/tiny-craft/tiny-rdm/"><img src="build/appicon.png" width="120"/></a>
+</div>
+<h1 align="center">DevMate</h1>
+<h4 align="center"><strong>English</strong> | <a href="https://github.com/tiny-craft/tiny-rdm/blob/main/README_zh.md">
+简体中文</a></h4>
+<div align="center">
 
-## About
 
-This is the official Wails React template.
+</div>
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="screenshots/dark_en.png">
+ <source media="(prefers-color-scheme: light)" srcset="screenshots/light_en.png">
+ <img alt="screenshot" src="screenshots/dark_en.png">
+</picture>
 
-## Live Development
+## Feature
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
 
-## Building
+## Roadmap
 
-To build a redistributable, production mode package, use `wails build`.
+- [ ] Pub/Sub operations
+- [ ] Import/export connection profile
+
+## Installation
+
+Available to download for free from [here](https://github.com/tiny-craft/tiny-rdm/releases).
+
+> If you can't open it after installation on macOS, exec the following command then reopen:
+> ``` shell
+>  sudo xattr -d com.apple.quarantine /Applications/Tiny\ RDM.app
+> ```
+
+## Build Guidelines
+
+### Prerequisites
+
+* Go (latest version)
+* Node.js >= 16
+* NPM >= 9
+
+### Install wails
+
+```bash
+go install github.com/wailsapp/wails/v2/cmd/wails@latest
+```
+
+### Clone the code
+
+```bash
+git clone https://github.com/tiny-craft/tiny-rdm --depth=1
+```
+
+### Build frontend
+
+```bash
+npm install --prefix ./frontend
+```
+
+### Compile and run
+
+```bash
+wails dev
+```
+
