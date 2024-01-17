@@ -17,10 +17,7 @@ var assets embed.FS
 var icon []byte
 
 func main() {
-	// Create an instance of the app structure
 	application := app.New()
-
-	// Create application with options
 	err := wails.Run(&options.App{
 		Title:  "DevMate",
 		Width:  800,
@@ -36,13 +33,18 @@ func main() {
 		Mac: &mac.Options{
 			TitleBar: &mac.TitleBar{
 				TitlebarAppearsTransparent: false,
+				HideTitle:                  false,
+				HideTitleBar:               false,
+				FullSizeContent:            false,
+				UseToolbar:                 false,
+				HideToolbarSeparator:       false,
 			},
 			Appearance:           mac.NSAppearanceNameVibrantLight,
 			WebviewIsTransparent: true,
 			WindowIsTranslucent:  true,
 			About: &mac.AboutInfo{
-				Title:   "Spirit",
-				Message: "© 2023 Alex",
+				Title:   "DevMate",
+				Message: "© 2024 Alex",
 				Icon:    icon,
 			},
 		},
