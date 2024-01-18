@@ -10,9 +10,7 @@
 </div>
 
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="screenshots/dark_en.png">
- <source media="(prefers-color-scheme: light)" srcset="screenshots/light_en.png">
- <img alt="screenshot" src="screenshots/dark_en.png">
+
 </picture>
 
 ## Feature
@@ -20,8 +18,6 @@
 
 ## Roadmap
 
-- [ ] Pub/Sub operations
-- [ ] Import/export connection profile
 
 ## Installation
 
@@ -29,7 +25,7 @@ Available to download for free from [here](https://github.com/tiny-craft/tiny-rd
 
 > If you can't open it after installation on macOS, exec the following command then reopen:
 > ``` shell
->  sudo xattr -d com.apple.quarantine /Applications/Tiny\ RDM.app
+>  sudo xattr -d com.apple.quarantine /Applications/Tiny\ DevMate.app
 > ```
 
 ## Build Guidelines
@@ -49,7 +45,7 @@ go install github.com/wailsapp/wails/v2/cmd/wails@latest
 ### Clone the code
 
 ```bash
-git clone https://github.com/tiny-craft/tiny-rdm --depth=1
+git clone https://github.com/CuiYao631/DevMate/edit
 ```
 
 ### Build frontend
