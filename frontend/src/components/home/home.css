@@ -1,0 +1,28 @@
+/* home.css */
+
+.main-container {
+    display: flex;
+}
+
+.menu-bar {
+    width: 20%; /* 左侧菜单栏的宽度，可以根据需要调整 */
+    background-color: #f0f0f0; /* 菜单栏背景色 */
+    padding: 20px;
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-bar li {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* 添加其他样式和样式调整 */

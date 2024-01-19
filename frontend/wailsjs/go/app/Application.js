@@ -13,3 +13,7 @@ export function DefaultSizeMainWindow() {
 export function ResizeMainWindow(arg1, arg2) {
   return window['go']['app']['Application']['ResizeMainWindow'](arg1, arg2);
 }
+
+export function Startup(arg1, arg2) {
+  return window['go']['app']['Application']['Startup'](arg1, arg2);
+}
