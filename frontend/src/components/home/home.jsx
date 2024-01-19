@@ -1,12 +1,19 @@
 // home.jsx
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './home.css';
 import {useNavigate} from 'react-router-dom'
 
 const Home = () => {
+    function pageDimensions() {
+        console.log('pageDimensions')
+    }
 
+    const [dimensions, setDimensions] = useState(pageDimensions)
 
+    useEffect(() => {
+        // the function you want to call
+    }, [dimensions])
 
     return (
         <div className="main-container">

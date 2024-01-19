@@ -38,3 +38,8 @@ func (a *Application) DefaultSizeMainWindow() {
 func (a *Application) CreateKsuid() string {
 	return ksuid.New().String()
 }
+
+// InitApp 初始化应用
+func (a *Application) InitApp() {
+
+}

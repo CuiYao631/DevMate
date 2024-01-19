@@ -10,6 +10,10 @@ export function DefaultSizeMainWindow() {
   return window['go']['app']['Application']['DefaultSizeMainWindow']();
 }
 
+export function InitApp() {
+  return window['go']['app']['Application']['InitApp']();
+}
+
 export function ResizeMainWindow(arg1, arg2) {
   return window['go']['app']['Application']['ResizeMainWindow'](arg1, arg2);
 }
