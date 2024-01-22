@@ -24,61 +24,61 @@ const ChatPage = () => {
                 userId: currentChatUser.id,
             };
 
-            setMessages([...messages, newMessage]);
+            setMessages((prevMessages) => [...prevMessages, newMessage]);
             setInputValue('');
             setMessageIdCounter(messageIdCounter + 1);
         }
     };
 
-    const handleSendMessage2 = () => {
-        if (inputValue.trim() !== '' && currentChatUser) {
-            const replyMessage = {
-                position: 'left',
-                type: 'text',
-                text: inputValue,
-                date: new Date(),
-                id: messageIdCounter + 1,
-                userId: currentChatUser.id,
-            };
-
-            setMessages([...messages, replyMessage]);
-            setMessageIdCounter(messageIdCounter + 2);
-        }
-    };
-
-    // const addUser = () => {
-    //     const newUser = {
-    //         id: users.length + 1,
-    //         name: `User${users.length + 1}`,
-    //         avatar: 'https://bpic.588ku.com/element_origin_min_pic/01/48/73/4357443aa53522b.jpg',
-    //     };
-    //     setUsers([...users, newUser]);
+    // const handleSendMessage2 = () => {
+    //     if (inputValue.trim() !== '' && currentChatUser) {
+    //         const replyMessage = {
+    //             position: 'left',
+    //             type: 'text',
+    //             text: inputValue,
+    //             date: new Date(),
+    //             id: messageIdCounter + 1,
+    //             userId: currentChatUser.id,
+    //         };
+    //
+    //         setMessages([...messages, replyMessage]);
+    //         setMessageIdCounter(messageIdCounter + 2);
+    //     }
     // };
+
+
 
     const handleUserClick = (user) => {
         setCurrentChatUser(user);
         setMessages([]);
     };
+    const addUser = (data) => {
+        // 获取数据数组
+        const usersData = Object.values(data);
+        // 清空现有用户列表
+        setUsers([]);
+        // 遍历所有用户数据
+        usersData.forEach((userData) => {
+            // 检查用户是否已经存在
+            const userExists = users.some((user) => user.name === userData.Name);
+            if (!userExists) {
+                // 添加新用户
+                setUsers((prevUsers) => {
+                    const newUser = {
+                        id: prevUsers.length + 1,
+                        name: userData.Name,
+                        avatar: 'https://bpic.588ku.com/element_origin_min_pic/01/48/73/4357443aa53522b.jpg',
+                    };
+                    return [...prevUsers, newUser];
+                });
+            }
+        });
+    };
 
     useEffect(() => {
-        // const handleDataUpdated = (data) => {
-        //
-        //
-        //     const newArray = Object.entries(data).map(([key, value]) => {
-        //         console.log('Data updated:', key);
-        //         console.log('Data updated:', value.Name);
-        //     });
-        //     //setDataFromGo(data);
-        // };
-        const addUser = (data) => {
-            const newArray = Object.entries(data).map(([key, value]) => {
-               const newUser = {
-                     id: users.length + 1,
-                     name: value.Name,
-                     avatar: 'https://bpic.588ku.com/element_origin_min_pic/01/48/73/4357443aa53522b.jpg',
-                };
-                setUsers([...users, newUser]);
-            });
+        const handleDataUpdated = (data) => {
+            // 监听来自 Go 后端的数据更新事件
+            addUser(data);
         };
 
         // 监听来自 Go 后端的数据更新事件
@@ -139,6 +139,7 @@ const ChatPage = () => {
                     ))}
                 </div>
                 <Input
+                    className="send-button"
                     placeholder="输入消息..."
                     multiline={true}
                     onChange={(e) => setInputValue(e.target.value)}
@@ -149,20 +150,6 @@ const ChatPage = () => {
                             backgroundColor='black'
                             text='发送'
                             onClick={handleSendMessage}
-                        />
-                    }
-                />
-                <Input
-                    placeholder="输入消息..."
-                    multiline={true}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    value={inputValue}
-                    rightButtons={
-                        <Button
-                            color='white'
-                            backgroundColor='black'
-                            text='发送'
-                            onClick={handleSendMessage2}
                         />
                     }
                 />

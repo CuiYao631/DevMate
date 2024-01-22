@@ -5,6 +5,7 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 	"log"
 	"net"
+	"os/user"
 	"strings"
 )
 
@@ -12,7 +13,7 @@ type DiscoveredUser struct {
 	Hostname string
 	IP       string
 }
-type user struct {
+type users struct {
 	Name   string
 	IP     string
 	Avatar string
@@ -46,7 +47,7 @@ func (f *Find) OpenFind() {
 
 	buffer := make([]byte, 1024)
 
-	userList := make(map[string]user)
+	userList := make(map[string]users)
 	for {
 		// Read data from the connection
 		n, _, err := conn.ReadFromUDP(buffer)
@@ -63,19 +64,24 @@ func (f *Find) OpenFind() {
 			continue
 		}
 
-		hostname := parts[0]
+		//hostname := parts[0]
 		ip := parts[1]
 
 		// Check if the IP is in the list of local IPs
 		if !contains(localIPs, ip) {
+			currentUser, err := user.Current()
+			if err != nil {
+				fmt.Println("无法获取当前用户信息:", err)
+				return
+			}
 			// Print discovered user
 			//str, _ := fmt.Printf("Discovered user: %s at %s\n", hostname, ip)
 
 			//data := "{\"hostname\":\"" + hostname + "\",\"ip\":\"" + ip + "\"}"
 			//log.Println(data)
 			//runtime.EventsEmit(f.ctx, "dataUpdated", data)
-			userList[ip] = user{
-				Name:   hostname,
+			userList[ip] = users{
+				Name:   currentUser.Name,
 				IP:     ip,
 				Avatar: "",
 			}
