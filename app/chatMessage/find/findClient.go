@@ -3,9 +3,7 @@ package find
 import (
 	"fmt"
 	"github.com/wailsapp/wails/v2/pkg/runtime"
-	"log"
 	"net"
-	"os/user"
 	"strings"
 )
 
@@ -21,7 +19,6 @@ type users struct {
 
 // OpenFind 开启局域网发现
 func (f *Find) OpenFind() {
-	log.Println("OpenFind")
 	// Create a UDP address to listen on
 	addr, err := net.ResolveUDPAddr("udp", fmt.Sprintf(":%d", discoveryPort))
 	if err != nil {
@@ -64,16 +61,11 @@ func (f *Find) OpenFind() {
 			continue
 		}
 
-		//hostname := parts[0]
+		hostname := parts[0]
 		ip := parts[1]
 
 		// Check if the IP is in the list of local IPs
 		if !contains(localIPs, ip) {
-			currentUser, err := user.Current()
-			if err != nil {
-				fmt.Println("无法获取当前用户信息:", err)
-				return
-			}
 			// Print discovered user
 			//str, _ := fmt.Printf("Discovered user: %s at %s\n", hostname, ip)
 
@@ -81,7 +73,7 @@ func (f *Find) OpenFind() {
 			//log.Println(data)
 			//runtime.EventsEmit(f.ctx, "dataUpdated", data)
 			userList[ip] = users{
-				Name:   currentUser.Name,
+				Name:   hostname,
 				IP:     ip,
 				Avatar: "",
 			}

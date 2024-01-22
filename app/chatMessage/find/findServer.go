@@ -3,16 +3,21 @@ package find
 import (
 	"fmt"
 	"net"
-	"os"
+	"os/user"
 	"time"
 )
 
 // OpenBeFound 开启局域网被发现
 func (f *Find) OpenBeFound() {
 	// Get the hostname and IP address of the server
-	hostname, err := os.Hostname()
+	//hostname, err := os.Hostname()
+	//if err != nil {
+	//	fmt.Println("Error getting hostname:", err)
+	//	return
+	//}
+	currentUser, err := user.Current()
 	if err != nil {
-		fmt.Println("Error getting hostname:", err)
+		fmt.Println("无法获取当前用户信息:", err)
 		return
 	}
 
@@ -52,7 +57,7 @@ func (f *Find) OpenBeFound() {
 
 	// Continuously send broadcast messages with name and IP address
 	for {
-		message := fmt.Sprintf("%s|%s", hostname, serverIP)
+		message := fmt.Sprintf("%s|%s", currentUser.Name, serverIP)
 		_, err := conn.Write([]byte(message))
 		if err != nil {
 			fmt.Println("Error sending broadcast message:", err)
