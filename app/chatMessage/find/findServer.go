@@ -36,11 +36,24 @@ func (f *Find) OpenBeFound() {
 		fmt.Println("Error finding a suitable IP address.")
 		return
 	}
+	// Create a UDP connection to broadcast messages
+	broadcastAddr, err := net.ResolveUDPAddr("udp", fmt.Sprintf("255.255.255.255:%d", discoveryPort))
+	if err != nil {
+		fmt.Println("Error resolving broadcast address:", err)
+		return
+	}
+
+	conn, err := net.DialUDP("udp", nil, broadcastAddr)
+	if err != nil {
+		fmt.Println("Error dialing UDP connection:", err)
+		return
+	}
+	defer conn.Close()
 
 	// Continuously send broadcast messages with name and IP address
 	for {
 		message := fmt.Sprintf("%s|%s", hostname, serverIP)
-		_, err := f.ServerConn.Write([]byte(message))
+		_, err := conn.Write([]byte(message))
 		if err != nil {
 			fmt.Println("Error sending broadcast message:", err)
 		}
@@ -51,5 +64,5 @@ func (f *Find) OpenBeFound() {
 
 // CloseBeFound 关闭局域网被发现
 func (f *Find) CloseBeFound() {
-	f.ServerConn.Close()
+	//f.ServerConn.Close()
 }

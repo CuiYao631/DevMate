@@ -9,6 +9,8 @@ export function DefaultSizeMainWindow():Promise<void>;
 
 export function InitApp():Promise<void>;
 
+export function PushDataToReact():Promise<void>;
+
 export function ResizeMainWindow(arg1:number,arg2:number):Promise<void>;
 
 export function Startup(arg1:context.Context,arg2:menu.Menu):Promise<void>;

@@ -1,0 +1,96 @@
+/* ChatPage.css */
+
+.chat-container {
+    display: flex;
+    height: 100vh;
+    width: 200vh;
+}
+
+.user-list {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.chat-room {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.message-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.message-bubble {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.message-bubble.left {
+    justify-content: flex-start;
+}
+
+.message-bubble.right {
+    justify-content: flex-end;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message-content {
+    background-color: #4c7046;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* chat.css */
+
+/* 用户列表样式 */
+.user-list {
+    padding: 20px;
+}
+
+.user-avatar {
+    width: 40px; /* 设置用户头像的宽度 */
+    height: 40px; /* 设置用户头像的高度 */
+    margin-right: 10px; /* 可根据需要设置用户头像之间的间距 */
+}
+
+/* 聊天气泡样式 */
+.message-bubble {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 70%; /* 设置聊天气泡的最大宽度，以便在屏幕较窄时不会过宽 */
+}
+
+.avatar {
+    width: 20px; /* 设置聊天气泡中用户头像的宽度 */
+    height: 20px; /* 设置聊天气泡中用户头像的高度 */
+    margin-right: 5px; /* 可根据需要设置聊天气泡中用户头像和消息内容之间的间距 */
+}
+
+/* 输入框样式（可根据实际需要调整） */
+.input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.input-message {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* 添加用户按钮样式 */
+.add-user-button {
+    margin-top: 10px;
+}
