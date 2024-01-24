@@ -3,7 +3,6 @@ package find
 import (
 	"fmt"
 	"github.com/wailsapp/wails/v2/pkg/runtime"
-	"log"
 	"net"
 	"strings"
 )
@@ -77,7 +76,6 @@ func (f *Find) OpenFind() {
 				Avatar: "",
 			}
 		}
-		log.Println(userList)
 		runtime.EventsEmit(f.ctx, "dataUpdated", userList)
 		// 删除不在当前UDP消息中的用户
 		for k := range userList {
