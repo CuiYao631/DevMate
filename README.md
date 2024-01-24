@@ -14,14 +14,19 @@
 </picture>
 
 ## Feature
+-  LAN Discovery Function
+-  Chat function
 
 
 ## Roadmap
-
-
+-  chatGPT 
+-  group chat
+-  send file
+-  
+  
 ## Installation
 
-Available to download for free from [here](https://github.com/tiny-craft/tiny-rdm/releases).
+Available to download for free from [here](https://github.com/CuiYao631/DevMate/releases).
 
 > If you can't open it after installation on macOS, exec the following command then reopen:
 > ``` shell
@@ -33,7 +38,7 @@ Available to download for free from [here](https://github.com/tiny-craft/tiny-rd
 ### Prerequisites
 
 * Go (latest version)
-* Node.js >= 16
+* Node.js >= 14
 * NPM >= 9
 
 ### Install wails
