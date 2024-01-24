@@ -28,9 +28,9 @@ jobs:
             platform: darwin/universal
             # wails bug, mac 的 output file 不生效, 先用这个保证能用
             output: DevMate
-          - os: ubuntu-latest
-            platform: linux/amd64
-            output: DevMate-linux
+#          - os: ubuntu-latest
+#            platform: linux/amd64
+#            output: DevMate-linux
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
