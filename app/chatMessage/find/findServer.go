@@ -2,6 +2,7 @@ package find
 
 import (
 	"fmt"
+	"log"
 	"net"
 	"os/user"
 	"time"
@@ -9,6 +10,8 @@ import (
 
 // OpenBeFound 开启局域网被发现
 func (f *Find) OpenBeFound() {
+
+	log.Println("OpenBeFound")
 	// Get the hostname and IP address of the server
 	//hostname, err := os.Hostname()
 	//if err != nil {
@@ -41,6 +44,7 @@ func (f *Find) OpenBeFound() {
 		fmt.Println("Error finding a suitable IP address.")
 		return
 	}
+
 	// Create a UDP connection to broadcast messages
 	broadcastAddr, err := net.ResolveUDPAddr("udp", fmt.Sprintf("255.255.255.255:%d", discoveryPort))
 	if err != nil {
@@ -57,7 +61,7 @@ func (f *Find) OpenBeFound() {
 
 	// Continuously send broadcast messages with name and IP address
 	for {
-		message := fmt.Sprintf("%s|%s", currentUser.Name, serverIP)
+		message := fmt.Sprintf("%s|%s", currentUser.Username, serverIP)
 		_, err := conn.Write([]byte(message))
 		if err != nil {
 			fmt.Println("Error sending broadcast message:", err)

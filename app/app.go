@@ -28,8 +28,8 @@ func (a *Application) Startup(ctx context.Context, menus *menu.Menu) {
 	runtime.MenuUpdateApplicationMenu(ctx)
 
 	f := find.NewFind(ctx, "", "", "")
-	f.OpenFind()
-	f.OpenBeFound()
+	go f.OpenFind()
+	go f.OpenBeFound()
 
 }
 func (a *Application) ResizeMainWindow(width, height float64) {

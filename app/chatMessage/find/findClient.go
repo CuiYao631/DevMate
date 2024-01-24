@@ -3,6 +3,7 @@ package find
 import (
 	"fmt"
 	"github.com/wailsapp/wails/v2/pkg/runtime"
+	"log"
 	"net"
 	"strings"
 )
@@ -53,6 +54,10 @@ func (f *Find) OpenFind() {
 			continue
 		}
 
+		if n == 0 {
+			runtime.EventsEmit(f.ctx, "dataUpdated", nil)
+		}
+
 		// Extract hostname and IP address from received data
 		data := string(buffer[:n])
 		parts := strings.Split(data, "|")
@@ -64,21 +69,23 @@ func (f *Find) OpenFind() {
 		hostname := parts[0]
 		ip := parts[1]
 
-		// Check if the IP is in the list of local IPs
 		if !contains(localIPs, ip) {
-			// Print discovered user
-			//str, _ := fmt.Printf("Discovered user: %s at %s\n", hostname, ip)
 
-			//data := "{\"hostname\":\"" + hostname + "\",\"ip\":\"" + ip + "\"}"
-			//log.Println(data)
-			//runtime.EventsEmit(f.ctx, "dataUpdated", data)
 			userList[ip] = users{
 				Name:   hostname,
 				IP:     ip,
 				Avatar: "",
 			}
 		}
+		log.Println(userList)
 		runtime.EventsEmit(f.ctx, "dataUpdated", userList)
+		// 删除不在当前UDP消息中的用户
+		for k := range userList {
+			if !strings.Contains(data, k) {
+				delete(userList, k)
+			}
+		}
+
 	}
 }
 
