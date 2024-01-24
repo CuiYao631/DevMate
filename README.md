@@ -30,7 +30,7 @@ Available to download for free from [here](https://github.com/CuiYao631/DevMate/
 
 > If you can't open it after installation on macOS, exec the following command then reopen:
 > ``` shell
->  sudo xattr -d com.apple.quarantine /Applications/Tiny\ DevMate.app
+>  sudo xattr -d com.apple.quarantine /Applications/DevMate.app
 > ```
 
 ## Build Guidelines
