@@ -7,6 +7,9 @@
 <div align="center">
 
 [![License](https://img.shields.io/github/v/release/CuiYao631/DevMate)](https://github.com/CuiYao631/DevMate/releases)
+![GitHub All Releases](https://img.shields.io/github/downloads/CuiYao631/DevMate/total)
+[![GitHub stars](https://img.shields.io/github/stars/CuiYao631/DevMate)](https://github.com/CuiYao631/DevMate/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/CuiYao631/DevMate)](https://github.com/CuiYao631/DevMate/fork)
 
 
 </div>
