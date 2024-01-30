@@ -6,6 +6,8 @@
 简体中文</a></h4> -->
 <div align="center">
 
+[![License](https://img.shields.io/github/v/release/CuiYao631/DevMate)](https://github.com/CuiYao631/DevMate/releases)
+
 
 </div>
 
