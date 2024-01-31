@@ -5,6 +5,7 @@ import {CreateKsuid} from "../wailsjs/go/app/Application";
 import LoginCard from './components/login/loginCard.jsx'
 import Home from './components/home/home.jsx'
 import { Toaster, toast } from 'sonner'
+import SettingsPage from './components/settings/settings.jsx'
 
 
 function App() {
@@ -35,9 +36,9 @@ function App() {
             <Toaster  position="top-center" expand={true} />
             <BrowserRouter>
                 <Routes>
-                    <Route path="/login" element={<LoginCard showMessage={showMessage}/>}/>
-                    <Route path="/home" element={<Home/>}/>
-                    <Route  path="/" element={<Navigate to="/login"/>}/>
+                    {/*<Route path="/login" element={<LoginCard showMessage={showMessage}/>}/>*/}
+                    <Route path="/" element={<Home/>}/>
+                    {/*<Route  path="/" element={<Navigate to="/login"/>}/>*/}
                 </Routes>
             </BrowserRouter>
         </div>

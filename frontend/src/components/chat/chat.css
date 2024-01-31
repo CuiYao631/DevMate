@@ -9,7 +9,7 @@
 .user-list {
     flex: 1;
     padding: 20px;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid rgba(119, 118, 118, 0.45);
 }
 
 .chat-room {

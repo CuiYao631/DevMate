@@ -6,6 +6,7 @@ import 'react-chat-elements/dist/main.css';
 import './chat.css';
 import {EventsOff, EventsOn} from '../../../wailsjs/runtime/runtime.js'
 
+
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');

@@ -43,17 +43,12 @@ func main() {
 		Bind: []interface{}{
 			application,
 		},
-
+		//Frameless:       true,
+		//CSSDragProperty: "window",
+		//CSSDragValue:    "1",
 		Mac: &mac.Options{
-			TitleBar: &mac.TitleBar{
-				TitlebarAppearsTransparent: false,
-				HideTitle:                  false,
-				HideTitleBar:               false,
-				FullSizeContent:            false,
-				UseToolbar:                 false,
-				HideToolbarSeparator:       false,
-			},
-			Appearance:           mac.NSAppearanceNameVibrantLight,
+			TitleBar:             mac.TitleBarHiddenInset(),
+			Appearance:           mac.NSAppearanceNameDarkAqua,
 			WebviewIsTransparent: true,
 			WindowIsTranslucent:  true,
 			About: &mac.AboutInfo{
