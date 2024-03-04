@@ -6,7 +6,8 @@ import {
     GlobalOutlined,
     HighlightOutlined,
     SettingOutlined,
-    BackwardFilled
+    BackwardFilled,
+    UsbOutlined
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
@@ -45,7 +46,10 @@ const SettingsPage = () => {
                     <Menu.Item key="5" icon={<LaptopOutlined />}>
                         网络设置
                     </Menu.Item>
-                    <Menu.Item key="6" icon={<BackwardFilled/>} onClick={() => window.location.href = '/'} style={{ marginBottom: 'auto' }}>
+                    <Menu.Item key="6" icon={<UsbOutlined/>}>
+                        设备设置
+                    </Menu.Item>
+                    <Menu.Item key="7" icon={<BackwardFilled/>} onClick={() => window.location.href = '/'} style={{ marginBottom: 'auto' }}>
                         返回主页
                     </Menu.Item>
                 </Menu>

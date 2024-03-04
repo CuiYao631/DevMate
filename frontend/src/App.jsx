@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
 import {CreateKsuid} from "../wailsjs/go/app/Application";
 import LoginCard from './components/login/loginCard.jsx'
-import Home from './components/home/home.jsx'
+import Home from './components/home/home.tsx'
 import { Toaster, toast } from 'sonner'
 import SettingsPage from './components/settings/settings.jsx'
 
@@ -33,7 +33,7 @@ function App() {
     };
     return (
         <div>
-            <Toaster  position="top-center" expand={true} />
+            {/*<Toaster  position="top-center" expand={true} />*/}
             <BrowserRouter>
                 <Routes>
                     {/*<Route path="/login" element={<LoginCard showMessage={showMessage}/>}/>*/}
