@@ -1,3 +1,4 @@
+
 // @ts-ignore
 import React, {useEffect, useState} from 'react';
 import './home.css';
@@ -8,6 +9,7 @@ import {
     TeamOutlined,
     UserOutlined,
 } from '@ant-design/icons';
+// @ts-ignore
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
