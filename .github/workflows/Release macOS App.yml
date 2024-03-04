@@ -94,7 +94,7 @@ jobs:
           ./create-dmg/create-dmg \
             --no-internet-enable \
             --volname "DevMate Installer" \
-            --volicon "build/bin/DevMate.app/Contents/Resources/iconfile.icns" \
+            --volicon "bin/DevMate.app/Contents/Resources/iconfile.icns" \
             --background "dmg/background.tiff" \
             --text-size 12 \
             --window-pos 400 400 \
@@ -105,7 +105,7 @@ jobs:
             --app-drop-link 480 180 \
             --add-file "损坏修复" "dmg/fix-app_zh" 330 290 \
             "bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.dmg" \
-            "build/bin"
+            "bin"
 
       - name: Upload release asset (DMG Package)
         uses: actions/upload-release-asset@v1
