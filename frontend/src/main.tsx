@@ -4,6 +4,8 @@ import './style.css'
 import App from './App'
 
 const container = document.getElementById('root')
+// @ts-ignore
+container.setAttribute('style','--wails-draggable:drag')
 
 const root = createRoot(container!)
 
