@@ -1,13 +1,7 @@
 // @ts-ignore
 import React, {useEffect, useState} from 'react';
 import './home.css';
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
+
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
@@ -30,11 +24,11 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, ),
-    getItem('Team', 'sub2', <TeamOutlined />, ),
-    getItem('Files', '9', <FileOutlined />),
+    getItem('Option 1', '1' ),
+    getItem('Option 2', '2'),
+    getItem('User', 'sub1'  ),
+    getItem('Team', 'sub2' ),
+    getItem('Files', '9'),
 ];
 
 const Home = () => {
