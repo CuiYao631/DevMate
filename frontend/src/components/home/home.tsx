@@ -6,9 +6,13 @@ import {
     PieChartOutlined,
     TeamOutlined,
     UserOutlined,
+    SearchOutlined,
+    NotificationOutlined,
 } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import {Button, MenuProps} from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import {Notify} from "../../../wailsjs/go/app/Application";
+
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -42,6 +46,11 @@ const Home = () => {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
+    const notify = async () => {
+        await Notify()
+
+    }
+
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
@@ -50,7 +59,9 @@ const Home = () => {
                 <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
             </Sider>
             <Layout>
-                <Header style={{ padding: 0, background: colorBgContainer }} />
+                <Header style={{ padding: 0, background: colorBgContainer }} >
+                    <Button icon={<NotificationOutlined />}  onClick={notify}/>
+                </Header>
                 <Content style={{ margin: '0 16px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
                         <Breadcrumb.Item>User</Breadcrumb.Item>
@@ -65,11 +76,14 @@ const Home = () => {
                         }}
                     >
                         Bill is a cat.
+
                     </div>
+
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>
                     Ant Design ©{new Date().getFullYear()} Created by Ant UED
                 </Footer>
+
             </Layout>
         </Layout>
     );

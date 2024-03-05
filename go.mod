@@ -1,10 +1,14 @@
-module changeme
+module github.com/CuiYao631/DevMate
 
 go 1.21
 
 toolchain go1.21.3
 
-require github.com/wailsapp/wails/v2 v2.8.0
+require (
+	github.com/deckarep/gosx-notifier v0.0.0-20180201035817-e127226297fb
+	github.com/segmentio/ksuid v1.0.4
+	github.com/wailsapp/wails/v2 v2.8.0
+)
 
 require (
 	github.com/bep/debounce v1.2.1 // indirect
