@@ -9,7 +9,7 @@ import {
     SearchOutlined,
     NotificationOutlined,
 } from '@ant-design/icons';
-import {Button, MenuProps} from 'antd';
+import {Avatar, Badge, Button, MenuProps, Switch} from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import {Notify} from "../../../wailsjs/go/app/Application";
 
@@ -42,6 +42,10 @@ const items: MenuItem[] = [
 
 const Home = () => {
     const [collapsed, setCollapsed] = useState(false);
+    const [show, setShow] = useState(true);
+    const onChange = (checked: boolean) => {
+        setShow(checked);
+    };
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
@@ -53,7 +57,7 @@ const Home = () => {
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
-            <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+            <Sider  collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
                 <div className="demo-logo-vertical" />
 
                 <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
@@ -61,6 +65,10 @@ const Home = () => {
             <Layout>
                 <Header style={{ padding: 0, background: colorBgContainer }} >
                     <Button icon={<NotificationOutlined />}  onClick={notify}/>
+                    <Badge dot={show}>
+                        <Avatar shape="square" icon={<UserOutlined />} />
+                    </Badge>
+                    <Switch onChange={onChange} checked={show} />
                 </Header>
                 <Content style={{ margin: '0 16px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
