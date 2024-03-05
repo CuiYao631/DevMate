@@ -22,10 +22,10 @@ func main() {
 	application := app.New()
 	// 创建默认菜单
 	defaultMenu := menu.NewMenu()
-	// 添加菜单
-	defaultMenu.Append(menu.AppMenu())
-	// 添加编辑菜单
-	defaultMenu.Append(menu.EditMenu())
+	//// 添加菜单
+	//defaultMenu.Append(menu.AppMenu())
+	//// 添加编辑菜单
+	//defaultMenu.Append(menu.EditMenu())
 
 	// Create application with options
 	err := wails.Run(&options.App{

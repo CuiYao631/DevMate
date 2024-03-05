@@ -2,7 +2,6 @@ package app
 
 import (
 	"context"
-	meu "github.com/CuiYao631/DevMate/app/menu"
 	"github.com/CuiYao631/DevMate/app/notify"
 	"github.com/segmentio/ksuid"
 	"github.com/wailsapp/wails/v2/pkg/menu"
@@ -22,9 +21,9 @@ func (a *Application) Startup(ctx context.Context, menus *menu.Menu) {
 	a.ctx = ctx
 	a.menus = menus
 
-	menus.Append(meu.NewWindowMenu(ctx))
-	runtime.MenuSetApplicationMenu(ctx, menus)
-	runtime.MenuUpdateApplicationMenu(ctx)
+	//menus.Append(meu.NewWindowMenu(ctx))
+	//runtime.MenuSetApplicationMenu(ctx, menus)
+	//runtime.MenuUpdateApplicationMenu(ctx)
 
 	//f := f ind.NewFind(ctx, "", "", "")
 	//go f.OpenFind()
