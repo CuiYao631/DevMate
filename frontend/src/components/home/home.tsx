@@ -9,7 +9,7 @@ import {
     SearchOutlined,
     NotificationOutlined,
 } from '@ant-design/icons';
-import {Avatar, Badge, Button, MenuProps, Switch} from 'antd';
+import {Avatar, Badge, Button, ConfigProvider, MenuProps, Switch} from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import {Notify} from "../../../wailsjs/go/app/Application";
 
@@ -33,15 +33,15 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, ),
-    getItem('Team', 'sub2', <TeamOutlined />, ),
-    getItem('Files', '9', <FileOutlined />),
+    getItem('test 1', '1', <PieChartOutlined />),
+    getItem('test 2', '2', <DesktopOutlined />),
+    getItem('test 3', '3', <UserOutlined />, ),
+    getItem('test 4', '4', <TeamOutlined />, ),
+    getItem('test 5', '5', <FileOutlined />),
 ];
 
 const Home = () => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
     const [show, setShow] = useState(true);
     const onChange = (checked: boolean) => {
         setShow(checked);
@@ -56,12 +56,12 @@ const Home = () => {
     }
 
     return (
-        <Layout style={{ minHeight: '100vh' }}>
-            <Sider  collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-                <div className="demo-logo-vertical" />
+                <Layout style={{ minHeight: '100vh' }}>
+                <Sider theme="dark" collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+                    <div className="demo-logo-vertical" />
 
-                <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
-            </Sider>
+                    <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+                </Sider>
             <Layout>
                 <Header style={{ padding: 0, background: colorBgContainer }} >
                     <Button icon={<NotificationOutlined />}  onClick={notify}/>

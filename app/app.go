@@ -46,5 +46,5 @@ func (a *Application) CreateKsuid() string {
 	return ksuid.New().String()
 }
 func (a *Application) Notify() {
-	a.notification.Notify()
+	a.notification.Notify("test", "test")
 }
