@@ -25,13 +25,13 @@ func NotifyMessage(title, message string) {
 	//note.Group = "com.unique.yourapp.identifier"
 
 	//(可选) 设置发件人 (通知现在将使用Safari图标)
-	//note.Sender = "com.apple.Safari"
+	note.Sender = "com.wails.DevMate"
 
 	//(可选) 指定要在单击通知时打开的url或bundleid。
 	note.Link = "www.baidu.com" //or BundleID like: com.apple.Terminal
 
 	//(可选) 应用程序图标 (仅限10.9)
-	note.AppIcon = "build/windows/icon.ico"
+	//note.AppIcon = "build/windows/icon.ico"
 
 	//(可选) 内容图像 (仅限10.9)
 	note.ContentImage = "build/appicon.png"
@@ -41,6 +41,7 @@ func NotifyMessage(title, message string) {
 
 	//检查错误
 	if err != nil {
+		log.Println(err)
 		log.Println("Uh oh!")
 	}
 }
