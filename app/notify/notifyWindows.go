@@ -8,12 +8,14 @@ import (
 	"log"
 )
 
-func NotifyMessage(title, message string) {
+func NotifyMessage(appId, title, message string) {
+
 	notification := toast.Notification{
-		AppID:   "DevMate",
-		Title:   "title",
-		Message: "message",
-		//Icon:    "C:\\path\\to\\your\\logo.png", // 文件必须存在
+
+		AppID:   appId,
+		Title:   title,
+		Message: message,
+		Icon:    "D:\\logo.png", // 文件必须存在
 		//Actions: []toast.Action{
 		//	{"protocol", "按钮1", "https://www.google.com/"},
 		//	{"protocol", "按钮2", "https://github.com/"},

@@ -9,6 +9,7 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 	"github.com/wailsapp/wails/v2/pkg/options/mac"
+	"github.com/wailsapp/wails/v2/pkg/options/windows"
 )
 
 //go:embed all:frontend/dist
@@ -29,6 +30,7 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
+
 		Title:  "DevMate",
 		Width:  800,
 		Height: 600,
@@ -42,6 +44,10 @@ func main() {
 		Bind: []interface{}{
 			application,
 		},
+		SingleInstanceLock: &options.SingleInstanceLock{
+			UniqueId: "DevMate",
+			//OnSecondInstanceLaunch: nil,
+		},
 		Mac: &mac.Options{
 			TitleBar:             mac.TitleBarHiddenInset(),
 			Appearance:           mac.NSAppearanceNameDarkAqua,
@@ -53,7 +59,9 @@ func main() {
 				Icon:    icon,
 			},
 		},
-		//Windows: &windows.Options{},
+		Windows: &windows.Options{
+			WebviewUserDataPath: "",
+		},
 	})
 
 	if err != nil {

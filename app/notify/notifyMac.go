@@ -8,12 +8,12 @@ import (
 	"log"
 )
 
-func NotifyMessage(title, message string) {
+func NotifyMessage(appId, title, message string) {
 	//至少指定要显示给最终用户的消息.
-	note := gosxnotifier.NewNotification("Check your Apple Stock!")
+	note := gosxnotifier.NewNotification(message)
 
 	//(可选) 设置标题
-	note.Title = "这是一个弹窗标题"
+	note.Title = title
 
 	//(可选) 设置字幕
 	note.Subtitle = "我的字幕"
