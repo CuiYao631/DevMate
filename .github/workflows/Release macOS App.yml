@@ -114,7 +114,7 @@ jobs:
         with:
             upload_url: ${{ github.event.release.upload_url }}
             asset_path: build/bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.dmg
-            asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.dmg
+            asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}_Portable.dmg
             asset_content_type: application/octet-stream
 
       - name : Build Source File
@@ -130,7 +130,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: build/bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.app.zip
-          asset_name: DevMate_SourceFile_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.app.zip
+          asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}_SourceFile.app.zip
           asset_content_type: application/octet-stream
 
       - name: Build  macOS PKG
@@ -146,5 +146,5 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: build/bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.pkg
-          asset_name: DevMate_Install_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.pkg
+          asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}_Install.pkg
           asset_content_type: application/octet-stream

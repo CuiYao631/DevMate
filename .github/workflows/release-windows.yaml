@@ -78,7 +78,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: build/bin/DevMate.zip
-          asset_name: DevMate_Portable_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.zip
+          asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}_Portable.zip
           asset_content_type: application/octet-stream
 
 
@@ -103,5 +103,5 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: build/bin/DevMate-amd64-installer.exe
-          asset_name: DevMate_Setup_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.exe
+          asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}_Install.exe
           asset_content_type: application/octet-stream
