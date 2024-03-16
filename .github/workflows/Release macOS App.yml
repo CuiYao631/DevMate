@@ -116,3 +116,34 @@ jobs:
             asset_path: build/bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.dmg
             asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.dmg
             asset_content_type: application/octet-stream
+
+      - name : Build Source File
+        shell: bash
+        working-directory: ./build
+        run: |
+          ditto -c -k ./bin/DevMate.app ./bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.app.zip
+
+      - name: Upload release asset (Source File)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: build/bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.app.zip
+          asset_name: DevMate_SourceFile_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.app.zip
+          asset_content_type: application/octet-stream
+
+      - name: Build  macOS PKG
+        shell: bash
+        run: |
+          productbuild --component ./bin/DevMate.app --identifier com.wails.DevMate --version ${{ steps.normalise_version.outputs.version }}  --scripts ./dmg  ./bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.pkg
+          
+      - name: Upload release asset (PKG Package)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: build/bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.pkg
+          asset_name: DevMate_${{ steps.normalise_version.outputs.version }}_${{ steps.normalise_platform.outputs.tag }}.pkg
+          asset_content_type: application/octet-stream
