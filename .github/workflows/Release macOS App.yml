@@ -135,6 +135,7 @@ jobs:
 
       - name: Build  macOS PKG
         shell: bash
+        working-directory: ./build
         run: |
           productbuild --component ./bin/DevMate.app --identifier com.wails.DevMate --version ${{ steps.normalise_version.outputs.version }}  --scripts ./dmg  ./bin/DevMate-${{ steps.normalise_platform.outputs.tag }}.pkg
           
